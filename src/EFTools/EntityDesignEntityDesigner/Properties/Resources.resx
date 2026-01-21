@@ -288,6 +288,9 @@ Add existing entities and relationships to this diagram by dragging them from th
   <data name="ImageFormatSvg" xml:space="preserve">
     <value>Scalable Vector Graphics (*.svg)</value>
   </data>
+  <data name="ImageFormatMermaid" xml:space="preserve">
+    <value>Mermaid ER Diagram (*.mmd)</value>
+  </data>
   <data name="ExportAsImageTitle" xml:space="preserve">
     <value>Export Diagram As</value>
   </data>
@@ -433,6 +436,33 @@ Add existing entities and relationships to this diagram by dragging them from th
   </data>
   <data name="ExportImage_DefaultFileName" xml:space="preserve">
     <value>EntityDesignerDiagram</value>
+  </data>
+  <data name="ExportImage_SelectLocation" xml:space="preserve">
+    <value>Select export location</value>
+  </data>
+  <data name="ExportImage_SelectLocationError" xml:space="preserve">
+    <value>Please select a location.</value>
+  </data>
+  <data name="ExportImage_LocationNotExistError" xml:space="preserve">
+    <value>The selected location does not exist.</value>
+  </data>
+  <data name="ExportImage_EnterFileNameError" xml:space="preserve">
+    <value>Please enter a file name.</value>
+  </data>
+  <data name="ExportImage_InvalidFileNameError" xml:space="preserve">
+    <value>The file name contains invalid characters.</value>
+  </data>
+  <data name="ExportImage_FileNameLabel" xml:space="preserve">
+    <value>File name:</value>
+  </data>
+  <data name="ExportImage_OptionsLabel" xml:space="preserve">
+    <value>Options:</value>
+  </data>
+  <data name="ExportImage_TransparentBackground" xml:space="preserve">
+    <value>Transparent Background</value>
+  </data>
+  <data name="ExportImage_ShowTypes" xml:space="preserve">
+    <value>Show data types</value>
   </data>
   <data name="Tx_AddAssociation" xml:space="preserve">
     <value>Add Association</value>

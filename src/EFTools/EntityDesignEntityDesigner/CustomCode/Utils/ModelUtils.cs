@@ -1,23 +1,16 @@
-﻿// Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the MIT license.  See License.txt in the project root for license information.
+// Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the MIT license.  See License.txt in the project root for license information.
 
 using EDMModelHelper = Microsoft.Data.Entity.Design.Model.ModelHelper;
 
 namespace Microsoft.Data.Entity.Design.EntityDesigner.Utils
 {
-    using System;
     using System.Diagnostics;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Drawing;
-    using System.Drawing.Imaging;
     using System.IO;
-    using System.Windows.Forms;
     using Microsoft.Data.Entity.Design.Base.Context;
     using Microsoft.Data.Entity.Design.EntityDesigner.CustomSerializer;
-    using Microsoft.Data.Entity.Design.EntityDesigner.Properties;
     using Microsoft.Data.Entity.Design.EntityDesigner.View;
     using Microsoft.Data.Entity.Design.EntityDesigner.View.Export;
     using Microsoft.VisualStudio.Modeling;
-    using Microsoft.VisualStudio.Modeling.Diagrams;
 
     internal static class ModelUtils
     {
@@ -61,84 +54,58 @@ namespace Microsoft.Data.Entity.Design.EntityDesigner.Utils
         /// <summary>
         ///     Exports the diagram as an image
         /// </summary>
-        [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Windows.Forms.FileDialog.set_Filter(System.String)")]
-        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "tif")]
-        [SuppressMessage("Microsoft.Naming", "CA2204:Literals should be spelled correctly", MessageId = "png")]
-        internal static void ExportAsImage(EntityDesignerDiagram diagram)
+        internal static void ExportDiagram(EntityDesignerDiagram diagram)
         {
-            if (diagram != null)
+            if (diagram == null)
             {
-                using (var dlg = new SaveFileDialog())
+                return;
+            }
+
+            var childShapes = diagram.NestedChildShapes;
+            Debug.Assert(childShapes != null && childShapes.Count > 0, "Diagram '" + diagram.Title + "' is empty");
+
+            if (childShapes == null || childShapes.Count == 0)
+            {
+                return;
+            }
+
+            // Get model name from EDMX file name (without extension)
+            var modelName = "EntityModel";
+            try
+            {
+                var viewModel = diagram.GetModel();
+                if (viewModel != null && viewModel.EditingContext != null)
                 {
-                    dlg.Title = Resources.ExportAsImageTitle;
-                    dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                    dlg.Filter = Resources.ImageFormatSvg + "|*.svg|" +
-                                 Resources.ImageFormatPng + "|*.png|" +
-                                 Resources.ImageFormatBmp + "|*.bmp|" +
-                                 Resources.ImageFormatJpeg + "|*.jpg|" +
-                                 Resources.ImageFormatGif + "|*.gif|" +
-                                 Resources.ImageFormatTiff + "|*.tif";
-                    dlg.FilterIndex = 1; // SVG is the default (most useful for modern workflows)
-                    dlg.FileName = Resources.ExportImage_DefaultFileName;
-                    if (dlg.ShowDialog() == DialogResult.OK)
+                    var artifactService = viewModel.EditingContext.GetEFArtifactService();
+                    if (artifactService != null && artifactService.Artifact != null)
                     {
-                        var childShapes = diagram.NestedChildShapes;
-                        Debug.Assert(childShapes != null && childShapes.Count > 0, "Diagram '" + diagram.Title + "' is empty");
-
-                        if (childShapes != null
-                            && childShapes.Count > 0)
+                        var filePath = artifactService.Artifact.Uri.LocalPath;
+                        if (!string.IsNullOrEmpty(filePath))
                         {
-                            var fi = new FileInfo(dlg.FileName);
-
-                            // Handle SVG export separately (vector format, no bitmap needed)
-                            if (fi.Extension.Equals(".svg", StringComparison.OrdinalIgnoreCase))
-                            {
-                                var svgExporter = new SvgExporter();
-                                svgExporter.ExportToSvg(diagram, dlg.FileName);
-                                return;
-                            }
-
-                            // For raster formats, create bitmap
-                            Bitmap bmp = null;
-                            try
-                            {
-                                // image has a white background - so force the AssociationConnector text to take that into account
-                                AssociationConnector.ForceDrawOnWhiteBackground = true;
-                                AssociationConnector.IsColorThemeSet = false;
-                                bmp = diagram.CreateBitmap(childShapes, Diagram.CreateBitmapPreference.FavorSmallSizeOverClarity);
-                            }
-                            finally
-                            {
-                                AssociationConnector.ForceDrawOnWhiteBackground = false;
-                                AssociationConnector.IsColorThemeSet = false;
-                            }
-
-                            var imageFormat = ImageFormat.Bmp;
-                            if (fi.Extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase))
-                            {
-                                imageFormat = ImageFormat.Jpeg;
-                            }
-                            else if (fi.Extension.Equals(".gif", StringComparison.OrdinalIgnoreCase))
-                            {
-                                imageFormat = ImageFormat.Gif;
-                            }
-                            else if (fi.Extension.Equals(".png", StringComparison.OrdinalIgnoreCase))
-                            {
-                                imageFormat = ImageFormat.Png;
-                            }
-                            else if (fi.Extension.Equals(".tif", StringComparison.OrdinalIgnoreCase))
-                            {
-                                imageFormat = ImageFormat.Tiff;
-                            }
-
-                            using (var fs = new FileStream(dlg.FileName, FileMode.Create, FileAccess.ReadWrite))
-                            {
-                                bmp.Save(fs, imageFormat);
-                            }
+                            modelName = Path.GetFileNameWithoutExtension(filePath);
                         }
                     }
                 }
             }
+            catch
+            {
+                // Fall back to diagram title if we can't get the file name
+                if (!string.IsNullOrEmpty(diagram.Title))
+                {
+                    modelName = diagram.Title;
+                }
+            }
+
+            var dlg = new ExportDiagramDialog(modelName, diagram.DisplayNameAndType);
+            if (dlg.ShowModal() != true)
+            {
+                return;
+            }
+
+            // Create export options and use ExportManager to handle the export
+            var options = dlg.CreateExportOptions();
+            var exportManager = new ExportManager();
+            exportManager.Export(diagram, options);
         }
 
         internal static bool IsUniqueName(ModelElement elementToCheck, string proposedName, EditingContext context)

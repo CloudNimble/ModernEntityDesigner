@@ -2088,7 +2088,7 @@ namespace Microsoft.Data.Entity.Design.Package
                     VsUtils.ShowErrorDialog(String.Format(CultureInfo.CurrentCulture, Resources.Error_EmptyDiagram, diagram.Title));
                     return;
                 }
-                ModelUtils.ExportAsImage(diagram);
+                ModelUtils.ExportDiagram(diagram);
             }
         }
 

@@ -123,9 +123,14 @@
     <Compile Include="EntityDesignerVersioningFacade\ReverseEngineerDb\StoreModelBuilderTests.cs" />
     <Compile Include="EntityDesignerVersioningFacade\ReverseEngineerDb\EntitySetDefiningQueryConverterTests.cs" />
     <Compile Include="EntityDesignerVersioningFacade\ReverseEngineerDb\UniqueIdentifierServiceTests.cs" />
-     <Compile Include="EntityDesignerVersioningFacade\SchemaManagerTests.cs" />
+    <Compile Include="EntityDesignerVersioningFacade\SchemaManagerTests.cs" />
     <Compile Include="EntityDesigner\CustomCode\Diagram\EntityDesignerDiagramTests.cs" />
+    <Compile Include="EntityDesigner\CustomCode\Export\DslTestHelper.cs" />
     <Compile Include="EntityDesigner\CustomCode\Export\SvgStyleHelperTests.cs" />
+    <Compile Include="EntityDesigner\CustomCode\Export\SvgConnectorRendererTests.cs" />
+    <Compile Include="EntityDesigner\CustomCode\Export\SvgShapeRendererTests.cs" />
+    <Compile Include="EntityDesigner\CustomCode\Export\SvgStylesheetManagerTests.cs" />
+    <Compile Include="EntityDesigner\CustomCode\Export\MermaidExporterTests.cs" />
     <Compile Include="EntityDesignModel\Commands\CreatePropertyCommandTests.cs" />
     <Compile Include="EntityDesignModel\Commands\RetargetXmlNamespaceCommandTests.cs" />
     <Compile Include="EntityDesignModel\Designer\DiagramArtifactTests.cs" />

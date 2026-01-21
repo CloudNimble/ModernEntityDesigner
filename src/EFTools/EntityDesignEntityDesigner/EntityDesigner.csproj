@@ -64,11 +64,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" />
     <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces" />
     <PackageReference Include="Microsoft.VisualStudio.TextTemplating.VSHost" />
-    <PackageReference Include="Microsoft.VisualStudio.XmlEditor"  />
+    <PackageReference Include="Microsoft.VisualStudio.XmlEditor" />
     <PackageReference Include="Microsoft.XmlEditor" />
     <PackageReference Include="Nerdbank.Streams" />
     <PackageReference Include="VsWebSite.Interop" />
-
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -78,11 +77,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CustomCode\Export\ExportFormat.cs" />
+    <Compile Include="CustomCode\Export\Svg\SvgStylesheetManager.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\InternalsVisibleTo.cs" />
     <Compile Include="CustomCode\ConnectionBuilders\InheritanceToolConnectAction.cs" />
@@ -97,10 +100,21 @@
     <Compile Include="CustomCode\Diagram\AutoArrangeHelper.cs" />
     <Compile Include="CustomCode\Diagram\DSLDesignerNavigationHelper.cs" />
     <Compile Include="CustomCode\Diagram\EntityDesignerDiagram.cs" />
-    <Compile Include="CustomCode\Export\SvgConnectorRenderer.cs" />
-    <Compile Include="CustomCode\Export\SvgExporter.cs" />
-    <Compile Include="CustomCode\Export\SvgShapeRenderer.cs" />
-    <Compile Include="CustomCode\Export\SvgStyleHelper.cs" />
+    <Page Include="CustomCode\Export\ExportDiagramDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="CustomCode\Export\ExportDiagramDialog.xaml.cs">
+      <DependentUpon>ExportDiagramDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCode\Export\DiagramExportOptions.cs" />
+    <Compile Include="CustomCode\Export\ExportManager.cs" />
+    <Compile Include="CustomCode\Export\Mermaid\MermaidExporter.cs" />
+    <Compile Include="CustomCode\Export\Raster\RasterExporter.cs" />
+    <Compile Include="CustomCode\Export\Svg\SvgConnectorRenderer.cs" />
+    <Compile Include="CustomCode\Export\Svg\SvgExporter.cs" />
+    <Compile Include="CustomCode\Export\Svg\SvgIconManager.cs" />
+    <Compile Include="CustomCode\Export\Svg\SvgShapeRenderer.cs" />
     <Compile Include="CustomCode\Dialogs\CustomZoomDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -364,11 +378,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ConnectorSourceSearch.cur" />
     <EmbeddedResource Include="Resources\ConnectorTargetSearch.cur" />
+    <EmbeddedResource Include="CustomCode\Export\Svg\Icons\*.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesignXmlCore\DesignXmlCore.csproj">
@@ -380,7 +395,7 @@
       <Name>XmlCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityDesignModel\EntityDesignModel.csproj">
-      <Project>{b44e942f-0ad1-4fb4-9146-dd1f8e17d4d8}</Project> 
+      <Project>{b44e942f-0ad1-4fb4-9146-dd1f8e17d4d8}</Project>
       <Name>EntityDesignModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\EntityDesign\EntityDesign.csproj">

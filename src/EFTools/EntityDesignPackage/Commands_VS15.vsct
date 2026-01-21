@@ -535,7 +535,7 @@
         <CommandFlag>DefaultInvisible</CommandFlag>
         <CommandFlag>DynamicVisibility</CommandFlag>
         <Strings>
-          <ButtonText>&amp;Export as Image...</ButtonText>
+          <ButtonText>&amp;Export Diagram...</ButtonText>
         </Strings>
       </Button>
       <Button guid="guidCmdSet" id="cmdIdCollapseAllEntityTypeShapes" priority="0x0202" type="Button">
