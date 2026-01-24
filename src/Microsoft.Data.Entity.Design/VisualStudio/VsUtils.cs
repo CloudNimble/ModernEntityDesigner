@@ -9,7 +9,6 @@ namespace Microsoft.Data.Entity.Design.VisualStudio
     using System.Data.Entity.Core.Common;
     using System.Data.Entity.Infrastructure.DependencyResolution;
     using System.Data.Entity.Infrastructure.Design;
-    using System.Data.Entity.SqlServer;
     using System.Data.SqlClient;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
@@ -2220,7 +2219,9 @@ namespace Microsoft.Data.Entity.Design.VisualStudio
 
             if (ProviderNames.IsSqlServerProvider(providerInvariantName))
             {
-                return typeof(SqlProviderServices);
+                // Load SqlProviderServices at runtime - no compile-time dependency on EntityFramework.SqlServer
+                // This avoids type collisions with EasyAF.Edmx while still supporting SQL Server
+                return Type.GetType("System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer");
             }
 
             return null;

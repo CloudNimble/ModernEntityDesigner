@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="EasyAF.Edmx" />
     <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk" />
     <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams" />
   </ItemGroup>

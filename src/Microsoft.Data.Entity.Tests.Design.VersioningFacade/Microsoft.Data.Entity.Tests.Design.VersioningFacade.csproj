@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
-    <PackageReference Include="Microsoft.EntityFramework.SqlServer" />
+    <PackageReference Include="EasyAF.Edmx" />
   </ItemGroup>
 
   <ItemGroup>

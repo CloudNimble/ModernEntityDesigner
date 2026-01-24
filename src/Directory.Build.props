@@ -1,7 +1,17 @@
 <Project>
 
-    <!-- Import parent Directory.Build.props -->
-    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+    <!-- Repository root -->
+    <PropertyGroup>
+        <RepoRoot>$(MSBuildThisFileDirectory)..\</RepoRoot>
+    </PropertyGroup>
+
+    <!-- Common assembly attributes for all projects -->
+    <PropertyGroup>
+        <Company>Microsoft Corporation</Company>
+        <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+        <Product>Microsoft Entity Framework</Product>
+        <NeutralLanguage>en-US</NeutralLanguage>
+    </PropertyGroup>
 
     <!-- Project type detection -->
     <PropertyGroup>
@@ -43,8 +53,8 @@
     <!-- Assembly signing (applies to all projects) -->
     <PropertyGroup>
         <SignAssembly>true</SignAssembly>
-        <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)ModernEntityDesigner.snk</AssemblyOriginatorKeyFile>
-        <StrongNamePublicKey>PublicKey=0024000004800000940000000602000000240000525341310004000001000100bdad90aba264d2a3a04c8fc0dac87ce45d32a8c5a642c6c92910d9cf7bdab903154d88bf2fd1e1837f6bc967956c9f344909c5d9f3a5a07cffcb97e67595326b7f3a25ee11d9ff863c0c8775fc9dd6ed223496fe66e4e9bc279c2fad6618977d57cafc2c71608f8f676a86eae562045943383e7fd3b86e8d4105bc23362e09b0</StrongNamePublicKey>
+        <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)easyaf.snk</AssemblyOriginatorKeyFile>
+        <StrongNamePublicKey>PublicKey=0024000004800000940000000602000000240000525341310004000001000100e172643e638d594b6f6172dd483884b936afc42f04816f78e687d02ce85647acec0b03d8632166230e4425a336ea8be9e1bf1896fe114e0049f88770c1707f9432cbab03b37a0761acdf05c940e2f7e87ea54dbf8cfbbd92b3361cc37712c18172a204e0ec04aaefbaee6b838c55dd56c0862f4436db8d48769ea63aaea632de</StrongNamePublicKey>
     </PropertyGroup>
 
     <!-- Additional assembly attributes for EFTools projects -->
@@ -52,8 +62,6 @@
         <Description>$(AssemblyName).dll</Description>
         <CLSCompliant>false</CLSCompliant>
     </PropertyGroup>
-
-
 
     <!-- InternalsVisibleTo for primary projects to expose internals to test projects -->
     <ItemGroup Condition=" '$(IsPrimaryProject)' == 'true' ">
@@ -74,6 +82,10 @@
 
     <ItemGroup Condition=" $(IsTestProject) != 'true' and $(IsSampleProject) != 'true' and $(IsTemplateProject) != 'true' ">
         <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NerdBank.GitVersioning" PrivateAssets="All" Condition="!Exists('packages.config')" />
     </ItemGroup>
 
     <!-- Test project package references -->

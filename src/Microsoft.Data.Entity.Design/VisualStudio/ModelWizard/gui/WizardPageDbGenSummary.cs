@@ -582,7 +582,7 @@ namespace Microsoft.Data.Entity.Design.VisualStudio.ModelWizard.Gui
                             // Examine the SSDL output. Display an error if we can't find it.
                             object ssdlOutputObj;
                             var ssdlOutput = String.Empty;
-                            if (e.Outputs.TryGetValue(EdmConstants.ssdlOutputName, out ssdlOutputObj)
+                            if (e.Outputs.TryGetValue(DatabaseGeneration.EdmConstants.ssdlOutputName, out ssdlOutputObj)
                                 && ssdlOutputObj != null
                                 && !String.IsNullOrEmpty(ssdlOutput = ssdlOutputObj as string))
                             {
@@ -592,7 +592,7 @@ namespace Microsoft.Data.Entity.Design.VisualStudio.ModelWizard.Gui
                             // Examine the MSL output. Display an error if we can't find it.
                             object mslOutputObj;
                             var mslOutput = String.Empty;
-                            if (e.Outputs.TryGetValue(EdmConstants.mslOutputName, out mslOutputObj)
+                            if (e.Outputs.TryGetValue(DatabaseGeneration.EdmConstants.mslOutputName, out mslOutputObj)
                                 && mslOutputObj != null
                                 && !String.IsNullOrEmpty(mslOutput = mslOutputObj as string))
                             {
@@ -602,7 +602,7 @@ namespace Microsoft.Data.Entity.Design.VisualStudio.ModelWizard.Gui
                             // Examine the DDL output. Display an error if we can't find it.
                             object ddlOutputObj;
                             var ddlOutput = String.Empty;
-                            if (e.Outputs.TryGetValue(EdmConstants.ddlOutputName, out ddlOutputObj)
+                            if (e.Outputs.TryGetValue(DatabaseGeneration.EdmConstants.ddlOutputName, out ddlOutputObj)
                                 && ddlOutputObj != null
                                 && !String.IsNullOrEmpty(ddlOutput = ddlOutputObj as string))
                             {

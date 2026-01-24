@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="EasyAF.Edmx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,5 +38,12 @@
     <Copy SourceFiles="Microsoft.Data.Entity.Design.Edmx_2.xsd" DestinationFolder="$(OutputPath)EntityDesigner\Schemas" />
     <Copy SourceFiles="Microsoft.Data.Entity.Design.Edmx_3.xsd" DestinationFolder="$(OutputPath)EntityDesigner\Schemas" />
   </Target>
+
+  <!-- InternalsVisibleTo for projects that need access to internal types -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design, $(StrongNamePublicKey)" />
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design.Package, $(StrongNamePublicKey)" />
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design.EntityDesigner, $(StrongNamePublicKey)" />
+  </ItemGroup>
 
 </Project>

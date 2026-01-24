@@ -7,7 +7,6 @@ namespace Microsoft.Data.Entity.Design.VersioningFacade
     using System.Data.Entity.Core.Common;
     using System.Data.Entity.Infrastructure.DependencyResolution;
     using System.Data.Entity.Infrastructure.Pluralization;
-    using System.Data.Entity.SqlServer;
     using System.Diagnostics;
     using System.Linq;
 
@@ -33,13 +32,24 @@ namespace Microsoft.Data.Entity.Design.VersioningFacade
             ProviderServicesResolver = new DbProviderServicesResolver();
             System.Diagnostics.Debug.WriteLine("[EF6Tools] DependencyResolver static ctor: ProviderServicesResolver initialized");
 
-            // Pre-register both SQL Server providers to use SqlProviderServices.
-            // This allows Microsoft.Data.SqlClient to work with the EF6 designer
-            // without going through the legacy provider wrapping path.
+            // Load SqlProviderServices at runtime - no compile-time dependency on EntityFramework.SqlServer.
+            // This avoids type collisions with EasyAF.Edmx while still supporting SQL Server.
             System.Diagnostics.Debug.WriteLine("[EF6Tools] DependencyResolver static ctor: Pre-registering SQL Server providers");
-            ProviderServicesResolver.Register(typeof(SqlProviderServices), "System.Data.SqlClient");
-            ProviderServicesResolver.Register(typeof(SqlProviderServices), "Microsoft.Data.SqlClient");
-            System.Diagnostics.Debug.WriteLine("[EF6Tools] DependencyResolver static ctor: Providers registered");
+            var sqlProviderType = Type.GetType(
+                "System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer");
+
+            if (sqlProviderType != null)
+            {
+                // Pre-register SQL Server provider for both invariant names
+                // Prefer Microsoft.Data.SqlClient (modern) but also support System.Data.SqlClient (legacy)
+                ProviderServicesResolver.Register(sqlProviderType, "Microsoft.Data.SqlClient");
+                ProviderServicesResolver.Register(sqlProviderType, "System.Data.SqlClient");
+                System.Diagnostics.Debug.WriteLine("[EF6Tools] DependencyResolver static ctor: SQL Server provider pre-registered for Microsoft.Data.SqlClient and System.Data.SqlClient");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("[EF6Tools] DependencyResolver static ctor: SqlProviderServices not found - SQL Server will use fallback resolution");
+            }
 
             // Initialize Instance LAST to ensure all dependencies are ready
             Instance = new DependencyResolver();

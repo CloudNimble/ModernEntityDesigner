@@ -583,9 +583,9 @@ namespace Microsoft.Data.Entity.Design.VisualStudio.ModelWizard.Engine
             // because the workflow has to define these.
             var inputs = new Dictionary<string, object>
                 {
-                    { EdmConstants.csdlInputName, edmItemCollection },
-                    { EdmConstants.existingSsdlInputName, existingSsdl },
-                    { EdmConstants.existingMslInputName, existingMsl }
+                    { DatabaseGeneration.EdmConstants.csdlInputName, edmItemCollection },
+                    { DatabaseGeneration.EdmConstants.existingSsdlInputName, existingSsdl },
+                    { DatabaseGeneration.EdmConstants.existingMslInputName, existingMsl }
                 };
 
             // Initialize the AssemblyLoader. This will cache project/website references and proffer assembly

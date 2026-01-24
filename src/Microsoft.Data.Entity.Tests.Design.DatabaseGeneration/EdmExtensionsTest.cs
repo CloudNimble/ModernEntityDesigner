@@ -19,6 +19,7 @@ namespace Microsoft.Data.Entity.Tests.Design.DatabaseGeneration
     using Moq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FluentAssertions;
+    using Microsoft.Data.Entity.Design.DatabaseGeneration;
 
     [TestClass]
     public class EdmExtensionTests

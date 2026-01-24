@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="EasyAF.Edmx" />
   </ItemGroup>
 
   <ItemGroup>

@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="EasyAF.Edmx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +23,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.VersioningFacade.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <!-- InternalsVisibleTo for projects that need access to internal types -->
+  <ItemGroup>
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design.Model, $(StrongNamePublicKey)" />
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design, $(StrongNamePublicKey)" />
+    <InternalsVisibleTo Include="Microsoft.Data.Entity.Design.DatabaseGeneration, $(StrongNamePublicKey)" />
   </ItemGroup>
 
 </Project>

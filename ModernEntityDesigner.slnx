@@ -19,8 +19,6 @@
     <File Path="test/EFTools/InProcTests/EFDesignerInProcTests.testsettings" />
   </Folder>
   <Folder Name="/Tests/">
-    <Project Path="test/EFTools/FunctionalTests/FunctionalTests.csproj" Id="d43b0b37-b24f-4b4f-a314-75c48131ce04" />
-    <Project Path="test/EFTools/InProcTests/InProcTests.csproj" Id="85a3a202-1727-4ac9-88cd-0531f9855895" />
     <Project Path="src/Microsoft.Data.Entity.Tests.Shared/Microsoft.Data.Entity.Tests.Shared.csproj" Id="59a6ab41-2aca-4949-8fc8-dff1229d5a81" />
     <Project Path="src/Microsoft.VisualStudio.TestTools.VsIdeTesting/Microsoft.VisualStudio.TestTools.VsIdeTesting.csproj" Id="614ac98e-a68e-4eb4-af27-1cedba7ca3b4" />
     <Project Path="src/Microsoft.Data.Entity.Tests.Design/Microsoft.Data.Entity.Tests.Design.csproj" />

@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" />
+    <PackageReference Include="EasyAF.Edmx" />
     <PackageReference Include="Microsoft.Data.ConnectionUI" />
     <PackageReference Include="System.Resources.Extensions" />
     <PackageReference Include="Microsoft.Internal.VisualStudio.Interop" />
