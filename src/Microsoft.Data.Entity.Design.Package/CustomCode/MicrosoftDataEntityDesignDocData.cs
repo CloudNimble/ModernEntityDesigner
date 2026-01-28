@@ -479,10 +479,10 @@ namespace Microsoft.Data.Entity.Design.Package
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine("[EF6Tools] OnDocumentLoaded START");
+                System.Diagnostics.Debug.WriteLine("[ModernEntityDesigner] OnDocumentLoaded START");
                 base.OnDocumentLoaded();
 
-                System.Diagnostics.Debug.WriteLine($"[EF6Tools] OnDocumentLoaded: Model={Model}, IsDesignerSafe={Model?.IsDesignerSafe}");
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] OnDocumentLoaded: Model={Model}, IsDesignerSafe={Model?.IsDesignerSafe}");
                 if (Model != null
                     && Model.IsDesignerSafe)
                 {
@@ -507,11 +507,11 @@ namespace Microsoft.Data.Entity.Design.Package
 
                 // Set the instance of this class in DiagramManagerContextItem.
                 EditingContext.Items.GetValue<DiagramManagerContextItem>().SetViewManager(this);
-                System.Diagnostics.Debug.WriteLine("[EF6Tools] OnDocumentLoaded END");
+                System.Diagnostics.Debug.WriteLine("[ModernEntityDesigner] OnDocumentLoaded END");
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[EF6Tools] OnDocumentLoaded EXCEPTION: {ex}");
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] OnDocumentLoaded EXCEPTION: {ex}");
                 VsUtils.ShowErrorDialog($"Error in OnDocumentLoaded: {ex.Message}\n\nStack trace:\n{ex.StackTrace}");
                 throw;
             }
@@ -586,7 +586,7 @@ namespace Microsoft.Data.Entity.Design.Package
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine($"[EF6Tools] LoadDocData START: fileName={fileName}, isReload={isReload}");
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] LoadDocData START: fileName={fileName}, isReload={isReload}");
                 EntityDesignerViewModel.EntityShapeLocationSeed = 0;
                 var ret = base.LoadDocData(fileName, isReload);
 
@@ -622,12 +622,12 @@ namespace Microsoft.Data.Entity.Design.Package
                         }
                     }
                 }
-                System.Diagnostics.Debug.WriteLine($"[EF6Tools] LoadDocData END: ret={ret}");
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] LoadDocData END: ret={ret}");
                 return ret;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"[EF6Tools] LoadDocData EXCEPTION: {ex}");
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] LoadDocData EXCEPTION: {ex}");
                 VsUtils.ShowErrorDialog($"Error loading EDMX file: {ex.Message}\n\nStack trace:\n{ex.StackTrace}");
                 throw;
             }

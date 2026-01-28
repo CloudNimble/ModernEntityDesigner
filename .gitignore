@@ -33,3 +33,5 @@ Storage.dat
 /Test1/Test1.csproj
 /Test1
 *.vsix
+/src/Microsoft.Data.Entity.Design.Package/merged.source.extension.vsixmanifest
+/src/Microsoft.Data.Entity.Design.Package/source.extension.vsixmanifest

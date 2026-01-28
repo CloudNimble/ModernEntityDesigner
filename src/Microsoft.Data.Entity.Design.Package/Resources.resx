@@ -234,4 +234,10 @@
     <value>Unable to create an image of diagram '{0}' because it is empty.
 Please add entities to this diagram.</value>
   </data>
+  <data name="ContextMenu_AddAssociation_NoEntities" xml:space="preserve">
+    <value>Add at least one entity to the diagram before creating an association.</value>
+  </data>
+  <data name="ContextMenu_AddInheritance_NotEnoughEntities" xml:space="preserve">
+    <value>Add at least two entities to the diagram before creating an inheritance relationship.</value>
+  </data>
 </root>

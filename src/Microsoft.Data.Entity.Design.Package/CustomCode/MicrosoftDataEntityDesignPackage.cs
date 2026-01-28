@@ -40,13 +40,16 @@ namespace Microsoft.Data.Entity.Design.Package
     [SuppressMessage("Microsoft.Maintainability", "CA1506:AvoidExcessiveClassCoupling")]
     [SuppressMessage("Microsoft.Design", "CA1001:TypesThatOwnDisposableFieldsShouldBeDisposable")]
     [ProvideEditorLogicalView(typeof(MicrosoftDataEntityDesignEditorFactory), PackageConstants.guidLogicalViewString, IsTrusted = true)]
-    // Auto-load when .edmx file is selected (modern pattern - no separate bootstrap package needed)
+    // Auto-load when .edmx file is selected (for context menu support)
     [ProvideAutoLoad(PackageConstants.UICONTEXT_AddNewEntityDataModel, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideUIContextRule(PackageConstants.UICONTEXT_AddNewEntityDataModel,
         name: "Auto load Entity Data Model Package",
         expression: "DotEdmx",
         termNames: new[] { "DotEdmx" },
         termValues: new[] { "HierSingleSelectionName:.edmx$" })]
+    // Auto-load when solution exists (needed for VS document restore on startup)
+    // This ensures the editor factory is registered before VS tries to restore .edmx documents
+    [ProvideAutoLoad(VSConstants.UICONTEXT.SolutionExistsAndFullyLoaded_string, PackageAutoLoadFlags.BackgroundLoad)]
     internal sealed partial class MicrosoftDataEntityDesignPackage : IEdmPackage, IVsTrackProjectRetargetingEvents
     {
         private OleMenuCommand _viewExplorerCmd;

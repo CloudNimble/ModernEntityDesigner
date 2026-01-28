@@ -300,13 +300,56 @@ namespace Microsoft.Data.Entity.Design.Package
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && _context != null)
+            if (disposing)
             {
-                // we didn't create the context, so just release it as soon as we can
-                _context = null;
-                VSColorTheme.ThemeChanged -= VSColorTheme_ThemeChanged;
+                if (_context != null)
+                {
+                    // we didn't create the context, so just release it as soon as we can
+                    _context = null;
+                    VSColorTheme.ThemeChanged -= VSColorTheme_ThemeChanged;
+                }
+
+                // Dispose the context menu service
+                _contextMenuService?.Dispose();
+                _contextMenuService = null;
             }
             base.Dispose(disposing);
+        }
+
+        /// <summary>
+        /// Called when a context menu is requested on the diagram.
+        /// Override to show our custom Windows 11-style context menu when clicking on empty diagram space.
+        /// </summary>
+        protected override void OnContextMenuRequested(DiagramPointEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] OnContextMenuRequested called. MousePosition: {e.MousePosition}");
+            System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] _contextMenuService is null: {_contextMenuService == null}");
+
+            // Check if we have a context menu service and if the click is on the diagram surface
+            if (_contextMenuService != null)
+            {
+                var isOnSurface = _contextMenuService.IsClickOnDiagramSurface(e.MousePosition);
+                System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] IsClickOnDiagramSurface: {isOnSurface}");
+
+                if (isOnSurface)
+                {
+                    var diagram = CurrentDiagram as EntityDesignerDiagram;
+                    System.Diagnostics.Debug.WriteLine($"[ModernEntityDesigner] CurrentDiagram is EntityDesignerDiagram: {diagram != null}");
+
+                    if (diagram != null)
+                    {
+                        System.Diagnostics.Debug.WriteLine("[ModernEntityDesigner] Showing custom context menu and setting Handled = true");
+                        // Show our custom context menu and mark the event as handled
+                        _contextMenuService.ShowCustomContextMenu(diagram, e.MousePosition);
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+
+            System.Diagnostics.Debug.WriteLine("[ModernEntityDesigner] Falling back to base.OnContextMenuRequested");
+            // Fall back to the default context menu for shapes
+            base.OnContextMenuRequested(e);
         }
 
         /// <summary>

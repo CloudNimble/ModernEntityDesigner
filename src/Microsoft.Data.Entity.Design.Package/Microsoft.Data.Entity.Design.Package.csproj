@@ -21,8 +21,7 @@
         <!-- VSIX settings -->
         <CreateVsixContainer>true</CreateVsixContainer>
         <TargetVsixContainerName>ModernEntityDesigner.vsix</TargetVsixContainerName>
-        <DeployExtension Condition="'$(Configuration)' == 'Debug'">true</DeployExtension>
-        <DeployExtension Condition="'$(Configuration)' == 'Release'">false</DeployExtension>
+        <DeployExtension>true</DeployExtension>
         <!-- Template output directory for VSSDK - use absolute path since IntermediateOutputPath isn't set yet -->
         <TemplateOutputDirectory>$(MSBuildProjectDirectory)\obj\$(Configuration)\</TemplateOutputDirectory>
         <!-- Disable auto-generation - use manual pkgdef (auto-gen fails due to assembly loading issues) -->
@@ -248,5 +247,8 @@
 
     <!-- Import VSSDK targets for VSIX creation -->
     <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+
+    <!-- Ensure VSIX is created on every build -->
+    <Target Name="CreateVsixAfterBuild" AfterTargets="Build" DependsOnTargets="CreateVsixContainer" />
 
 </Project>

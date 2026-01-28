@@ -45,6 +45,8 @@
     <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Diagrams.GraphObject" />
     <PackageReference Include="Microsoft.VisualStudio.Modeling.Sdk.Shell" />
     <PackageReference Include="Microsoft.VisualStudio.Package.LanguageService.15.0" />
+    <PackageReference Include="Microsoft.VisualStudio.ImageCatalog" />
+    <PackageReference Include="Microsoft.VisualStudio.Imaging" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.15.0" />
     <PackageReference Include="Microsoft.VisualStudio.Shell.Framework" />
     <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces" />
@@ -94,7 +96,7 @@
     <EmbeddedResource Include="Resources\*.cur" />
     <EmbeddedResource Include="CustomCode\Export\Svg\Icons\*.svg" />
     <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Update="Properties\Resources.Designer.cs">

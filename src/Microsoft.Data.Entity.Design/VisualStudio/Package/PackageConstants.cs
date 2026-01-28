@@ -17,7 +17,7 @@ namespace Microsoft.Data.Entity.Design.VisualStudio.Package
         // This has to be a const because it is used in an attribute.
         public const string guidLogicalViewString = "{ab6778a7-2644-4467-bd57-154f50f3dae5}";
 
-        // UIContext GUID for auto-loading when .edmx file is selected (from BootstrapPackage)
+        // UIContext GUID for auto-loading when .edmx file is selected
         public const string UICONTEXT_AddNewEntityDataModel = "E000C7E5-DBA5-4682-ABE0-7F6CE57B236D";
 
         public static readonly Guid guidLogicalView = new Guid(guidLogicalViewString);

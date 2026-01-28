@@ -1,7 +1,7 @@
 # EF6 Tools Build Instructions
 
 ## Prerequisites
-- Visual Studio 2022 or later (with VS SDK/Extensibility workload)
+- Visual Studio 2022 or later (with VS SDK/Extensibility workload + DSLModeling SDK)
 - .NET Framework 4.8 SDK
 - .NET SDK 8.0 or later
 
@@ -29,6 +29,9 @@ Note: Use Release mode to avoid Debug.Assert triggers during testing.
 
 - Main binaries: `bin\Debug\`
 - Test results: `TestResults\`
+
+## Testing the Designer in Visual Studio
+The system is running Visual Studio 2026 Insiders.
 
 ## Key Projects
 

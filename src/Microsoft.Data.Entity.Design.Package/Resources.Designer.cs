@@ -393,5 +393,23 @@ namespace Microsoft.Data.Entity.Design.Package {
                 return ResourceManager.GetString("Tx_Paste", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add at least one entity to the diagram before creating an association..
+        /// </summary>
+        internal static string ContextMenu_AddAssociation_NoEntities {
+            get {
+                return ResourceManager.GetString("ContextMenu_AddAssociation_NoEntities", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add at least two entities to the diagram before creating an inheritance relationship..
+        /// </summary>
+        internal static string ContextMenu_AddInheritance_NotEnoughEntities {
+            get {
+                return ResourceManager.GetString("ContextMenu_AddInheritance_NotEnoughEntities", resourceCulture);
+            }
+        }
     }
 }

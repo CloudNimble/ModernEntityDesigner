@@ -73,6 +73,7 @@
         <PackageVersion Include="Microsoft.VisualStudio.Editor" Version="$(MicrosoftVisualStudioEditorPackageVersion)" />
         <PackageVersion Include="Microsoft.VisualStudio.Extensibility.Editor.Contracts" Version="$(MicrosoftVisualStudioExtensibilityEditorContractsPackageVersion)" />
         <PackageVersion Include="Microsoft.VisualStudio.ExtensibilityHosting" Version="$(MicrosoftVisualStudioPackageCurrent)" />
+        <PackageVersion Include="Microsoft.VisualStudio.ImageCatalog" Version="$(MicrosoftVisualStudioShellPackageVersion)" />
         <PackageVersion Include="Microsoft.VisualStudio.Imaging" Version="$(MicrosoftVisualStudioShellPackageVersion)" />
         <PackageVersion Include="Microsoft.VisualStudio.Interop" Version="$(MicrosoftVisualStudioInteropPackageVersion)" />
         <PackageVersion Include="Microsoft.VisualStudio.Modeling.Sdk" Version="$(MicrosoftVisualStudioModelingPackageVersion)" />
