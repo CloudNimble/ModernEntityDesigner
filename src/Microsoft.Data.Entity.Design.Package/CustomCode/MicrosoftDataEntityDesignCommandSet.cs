@@ -3705,26 +3705,24 @@ namespace Microsoft.Data.Entity.Design.Package
                     Debug.Assert(cModel != null, "Conceptual model is null");
                     if (cModel != null)
                     {
-                        using (ComplexTypePickerDialog dialog = new ComplexTypePickerDialog(cModel, complexType))
+                        var dialog = new ComplexTypePickerDialog(cModel, complexType);
+                        if (dialog.ShowModal() == true)
                         {
-                            if (dialog.ShowDialog() == DialogResult.OK)
+                            var returnType = dialog.ComplexType;
+                            if (returnType != null)
                             {
-                                var returnType = dialog.ComplexType;
-                                if (returnType != null)
+                                var uri = Utils.FileName2Uri(CurrentDocData.FileName);
+                                EfiTransactionContext context = new EfiTransactionContext();
+                                var editingContext =
+                                    PackageManager.Package.DocumentFrameMgr.EditingContextManager.GetNewOrExistingContext(uri);
+                                CommandProcessorContext cpc = new CommandProcessorContext(
+                                    editingContext, EfiTransactionOriginator.ExplorerWindowOriginatorId,
+                                    Design.Resources.Tx_CreateScalarProperty, null, context);
+                                var property = CreateComplexTypePropertyCommand.CreateDefaultProperty(cpc, complexType, returnType);
+                                if (property != null)
                                 {
-                                    var uri = Utils.FileName2Uri(CurrentDocData.FileName);
-                                    EfiTransactionContext context = new EfiTransactionContext();
-                                    var editingContext =
-                                        PackageManager.Package.DocumentFrameMgr.EditingContextManager.GetNewOrExistingContext(uri);
-                                    CommandProcessorContext cpc = new CommandProcessorContext(
-                                        editingContext, EfiTransactionOriginator.ExplorerWindowOriginatorId,
-                                        Design.Resources.Tx_CreateScalarProperty, null, context);
-                                    var property = CreateComplexTypePropertyCommand.CreateDefaultProperty(cpc, complexType, returnType);
-                                    if (property != null)
-                                    {
-                                        var frame = ExplorerFrame;
-                                        frame?.NavigateToElementAndPutInRenameMode(property);
-                                    }
+                                    var frame = ExplorerFrame;
+                                    frame?.NavigateToElementAndPutInRenameMode(property);
                                 }
                             }
                         }
@@ -3751,6 +3749,8 @@ namespace Microsoft.Data.Entity.Design.Package
 
         internal void OnMenuAddNewTemplate(object sender, EventArgs e)
         {
+            const int OLE_E_PROMPTSAVECANCELLED = unchecked((int)0x8004000C);
+
             uint dwFilterCookie = 0;
             IVsRegisterNewDialogFilters registerNewDialogFilters = null;
 
@@ -3776,6 +3776,10 @@ namespace Microsoft.Data.Entity.Design.Package
                         DbContextCodeGenerator.AddAndNestCodeGenTemplates(
                             VsUtils.GetProjectItemForDocument(CurrentDocData.FileName, Services.ServiceProvider),
                             () => dte.ExecuteCommand("Project.AddNewItem", String.Empty));
+                    }
+                    catch (System.Runtime.InteropServices.COMException ex) when (ex.ErrorCode == OLE_E_PROMPTSAVECANCELLED)
+                    {
+                        // User canceled the save dialog - this is expected behavior, not an error
                     }
                     finally
                     {

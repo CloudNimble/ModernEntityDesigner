@@ -123,7 +123,7 @@
       <CustomToolNamespace>Microsoft.Data.Entity.Design.Templates</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Update="UI\Views\Dialogs\DialogsResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>DialogsResource.Designer.cs</LastGenOutput>
       <CustomToolNamespace>Microsoft.Data.Entity.Design.UI.Views.Dialogs</CustomToolNamespace>
     </EmbeddedResource>
@@ -229,6 +229,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="UI\Views\Dialogs\DialogsResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DialogsResource.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
 </Project>

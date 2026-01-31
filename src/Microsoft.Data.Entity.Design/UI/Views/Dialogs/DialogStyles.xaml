@@ -1,0 +1,109 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:shell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0">
+
+    <!-- Modern TextBox style with accent bottom border -->
+    <Style x:Key="ModernTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="{DynamicResource VsBrush.Window}"/>
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource VsBrush.WindowText}"/>
+        <Setter Property="SelectionBrush" Value="{DynamicResource VsBrush.Highlight}"/>
+        <Setter Property="BorderThickness" Value="1,1,1,2"/>
+        <Setter Property="Padding" Value="6,4"/>
+        <Setter Property="MinHeight" Value="26"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border x:Name="Border"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{DynamicResource VsBrush.ComboBoxBorder}"
+                                BorderThickness="1,1,1,0"
+                                CornerRadius="0">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <!-- Accent bottom border -->
+                        <Border x:Name="AccentBorder"
+                                BorderThickness="0,0,0,1"
+                                BorderBrush="{DynamicResource VsBrush.AccentDark}"
+                                VerticalAlignment="Bottom"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{DynamicResource VsBrush.ComboBoxMouseOverBorder}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Apply modern style as default for TextBox -->
+    <Style TargetType="TextBox" BasedOn="{StaticResource ModernTextBoxStyle}"/>
+
+    <!-- Modern ComboBox style with accent bottom border to match TextBox -->
+    <Style x:Key="ModernComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ComboBoxStyleKey}}">
+        <Setter Property="Padding" Value="6,4"/>
+        <Setter Property="MinHeight" Value="26"/>
+    </Style>
+
+    <!-- Apply modern style as default for ComboBox -->
+    <Style TargetType="ComboBox" BasedOn="{StaticResource ModernComboBoxStyle}"/>
+
+    <!-- Themed Button -->
+    <Style TargetType="Button" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ButtonStyleKey}}"/>
+
+    <!-- Themed CheckBox -->
+    <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.CheckBoxStyleKey}}"/>
+
+    <!-- Themed RadioButton -->
+    <Style TargetType="RadioButton" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ThemedDialogRadioButtonStyleKey}}"/>
+
+    <!-- Themed ListView -->
+    <Style TargetType="ListView" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ThemedDialogListViewStyleKey}}"/>
+
+    <!-- Themed ListBox -->
+    <Style TargetType="ListBox" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ThemedDialogListBoxStyleKey}}"/>
+
+    <!-- Themed TabControl -->
+    <Style TargetType="TabControl" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ThemedDialogTabControlNavigationStyleKey}}"/>
+
+    <!-- Themed TextBlock -->
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+    </Style>
+
+    <!-- Themed Label -->
+    <Style TargetType="Label">
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+    </Style>
+
+    <!-- Themed GroupBox -->
+    <Style TargetType="GroupBox">
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.ActiveBorder}"/>
+    </Style>
+
+    <!-- Field Label Style -->
+    <Style x:Key="FieldLabelStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,12,0"/>
+    </Style>
+
+    <!-- Section Header Style -->
+    <Style x:Key="SectionHeaderStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Margin" Value="0,0,0,8"/>
+    </Style>
+
+</ResourceDictionary>

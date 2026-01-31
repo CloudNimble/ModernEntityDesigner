@@ -1170,28 +1170,24 @@ namespace Microsoft.Data.Entity.Design.EntityDesigner.View
             ConceptualEntityModel model = ModelElement.ModelXRef.GetExisting(ModelElement) as ConceptualEntityModel;
             Debug.Assert(model != null);
 
-            using (NewEntityDialog dialog = new NewEntityDialog(model))
+            var dialog = new NewEntityDialog(model);
+            if (dialog.ShowModal() == true)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
-                    {
-                        Arranger.Start(dropPoint);
-                        Store.RuleManager.DisableRule(typeof(EntityType_AddRule));
+                    Arranger.Start(dropPoint);
+                    Store.RuleManager.DisableRule(typeof(EntityType_AddRule));
 
-                        using (var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddEntityType))
-                        {
-                            t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
-                            ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new EntityType_AddFromDialog(dialog));
-                            t.Commit();
-                        }
-                    }
-                    finally
-                    {
-                        Store.RuleManager.EnableRule(typeof(EntityType_AddRule));
-                        Arranger.End();
-                        EnsureSelectionVisible();
-                    }
+                    using var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddEntityType);
+                    t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
+                    ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new EntityType_AddFromDialog(dialog));
+                    t.Commit();
+                }
+                finally
+                {
+                    Store.RuleManager.EnableRule(typeof(EntityType_AddRule));
+                    Arranger.End();
+                    EnsureSelectionVisible();
                 }
             }
         }
@@ -1230,24 +1226,22 @@ namespace Microsoft.Data.Entity.Design.EntityDesigner.View
             ConceptualEntityModel model = modelEnd1Entity.Parent as ConceptualEntityModel;
             Debug.Assert(model != null);
 
-            using (NewAssociationDialog dialog = new NewAssociationDialog(model.EntityTypes(), modelEnd1Entity, modelEnd2Entity))
+            var dialog = new NewAssociationDialog(model.EntityTypes(), modelEnd1Entity, modelEnd2Entity);
+            if (dialog.ShowModal() == true)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
+                    Store.RuleManager.DisableRule(typeof(Association_AddRule));
+                    using (var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddAssociation))
                     {
-                        Store.RuleManager.DisableRule(typeof(Association_AddRule));
-                        using (var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddAssociation))
-                        {
-                            t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
-                            ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new Association_AddFromDialog(dialog));
-                            t.Commit();
-                        }
+                        t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
+                        ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new Association_AddFromDialog(dialog));
+                        t.Commit();
                     }
-                    finally
-                    {
-                        Store.RuleManager.EnableRule(typeof(Association_AddRule));
-                    }
+                }
+                finally
+                {
+                    Store.RuleManager.EnableRule(typeof(Association_AddRule));
                 }
             }
         }
@@ -1280,16 +1274,14 @@ namespace Microsoft.Data.Entity.Design.EntityDesigner.View
 
             List<ConceptualEntityType> cets = new List<ConceptualEntityType>(model.EntityTypes().Cast<ConceptualEntityType>());
 
-            using (NewInheritanceDialog dialog = new NewInheritanceDialog(modelEntity, cets))
+            var dialog = new NewInheritanceDialog(modelEntity, cets);
+            if (dialog.ShowModal() == true)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                using (var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddInheritance))
                 {
-                    using (var t = Store.TransactionManager.BeginTransaction(EntityDesignerRes.Tx_AddInheritance))
-                    {
-                        t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
-                        ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new Inheritance_AddFromDialog(dialog));
-                        t.Commit();
-                    }
+                    t.Context.Add(EfiTransactionOriginator.TransactionOriginatorDiagramId, DiagramId);
+                    ViewModelChangeContext.GetNewOrExistingContext(t).ViewModelChanges.Add(new Inheritance_AddFromDialog(dialog));
+                    t.Commit();
                 }
             }
         }
@@ -1662,42 +1654,56 @@ namespace Microsoft.Data.Entity.Design.EntityDesigner.View
                 return DialogResult.No;
             }
 
-            // show dialog giving user the choice to (a) delete only the 
+            // show dialog giving user the choice to (a) delete only the
             // C-side objects selected, (b) to also delete any StorageEntitySets
             // which will end up unmapped, or (c) cancel the whole operation
-            using (DeleteStorageEntitySetsDialog dialog =
-                new DeleteStorageEntitySetsDialog(unmappedStorageEntitySets))
+            var dialog = new DeleteStorageEntitySetsDialog(unmappedStorageEntitySets);
+            dialog.ShowModal();
+
+            // Convert WPF UserChoice to WinForms DialogResult
+            // UserChoice: true = Yes, false = No, null = Cancelled
+            DialogResult result;
+            if (dialog.UserChoice == true)
             {
-                var result = dialog.ShowDialog();
-                if (DialogResult.Yes == result)
-                {
-                    // user decided to also delete the unmapped StorageEntitySets;
-                    // the property below is checked in the EntityDesignerViewModel when committing the changes
-                    var viewModel = GetModel();
-                    Debug.Assert(null != viewModel, "viewModel should not be null");
-                    if (null != viewModel)
-                    {
-                        List<ICollection<StorageEntitySet>> unmappedMasterList = null;
-                        if (viewModel.Store.PropertyBag.ContainsKey(EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty))
-                        {
-                            unmappedMasterList =
-                                viewModel.Store.PropertyBag[EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty] as
-                                List<ICollection<StorageEntitySet>>;
-                        }
-
-                        if (unmappedMasterList == null)
-                        {
-                            unmappedMasterList = [];
-                            viewModel.Store.PropertyBag[EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty] =
-                                unmappedMasterList;
-                        }
-
-                        unmappedMasterList.Add(unmappedStorageEntitySets);
-                    }
-                }
-
-                return result;
+                result = DialogResult.Yes;
             }
+            else if (dialog.UserChoice == false)
+            {
+                result = DialogResult.No;
+            }
+            else
+            {
+                result = DialogResult.Cancel;
+            }
+
+            if (DialogResult.Yes == result)
+            {
+                // user decided to also delete the unmapped StorageEntitySets;
+                // the property below is checked in the EntityDesignerViewModel when committing the changes
+                var viewModel = GetModel();
+                Debug.Assert(null != viewModel, "viewModel should not be null");
+                if (null != viewModel)
+                {
+                    List<ICollection<StorageEntitySet>> unmappedMasterList = null;
+                    if (viewModel.Store.PropertyBag.ContainsKey(EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty))
+                    {
+                        unmappedMasterList =
+                            viewModel.Store.PropertyBag[EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty] as
+                            List<ICollection<StorageEntitySet>>;
+                    }
+
+                    if (unmappedMasterList == null)
+                    {
+                        unmappedMasterList = [];
+                        viewModel.Store.PropertyBag[EntityDesignerViewModel.DeleteUnmappedStorageEntitySetsProperty] =
+                            unmappedMasterList;
+                    }
+
+                    unmappedMasterList.Add(unmappedStorageEntitySets);
+                }
+            }
+
+            return result;
         }
 
         internal void AddMissingEntityTypeShapes(EntityDesignArtifact efArtifact, out bool addedMissingShapes)

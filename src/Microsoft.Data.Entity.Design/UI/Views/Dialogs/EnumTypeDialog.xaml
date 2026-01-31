@@ -5,13 +5,14 @@
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:vs="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
+                 xmlns:shell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
                  xmlns:ded="clr-namespace:Microsoft.Data.Entity.Design"
                  xmlns:vm="clr-namespace:Microsoft.Data.Entity.Design.UI.ViewModels"
                  xmlns:core-controls="clr-namespace:Microsoft.Data.Entity.Design.Core.Controls;assembly=Microsoft.Data.Tools.Design.XmlCore"
                  mc:Ignorable="d"
-                 d:DesignWidth="450" 
+                 d:DesignWidth="450"
                  d:DesignHeight="575"
-                 MinWidth="450" 
+                 MinWidth="450"
                  MinHeight="575"
                  SizeToContent="WidthAndHeight"
                  ShowInTaskbar="False"
@@ -20,16 +21,23 @@
                  FontFamily="{DynamicResource VsFont.EnvironmentFontFamily}"
                  FontSize="{DynamicResource VsFont.EnvironmentFontSize}"
                  BorderBrush="{DynamicResource VsBrush.ActiveBorder}" BorderThickness="0,0,1,0"
-                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey }}"
+                 Background="{DynamicResource VsBrush.ToolWindowBackground}"
                  FocusManager.FocusedElement="{Binding ElementName=txtEnumTypeName}">
 
     <vs:DialogWindow.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Microsoft.Data.Entity.Design;Component/Resources/EscherIcons.xaml"/>
+        <ResourceDictionary Source="DialogStyles.xaml"/>
       </ResourceDictionary.MergedDictionaries>
 
-        <!-- Draw hint on top of external type textbox -->
+      <!-- Keyed styles for inline use -->
+      <Style x:Key="ThemedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource ModernTextBoxStyle}"/>
+      <Style x:Key="ThemedComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ComboBoxStyleKey}}"/>
+      <Style x:Key="ThemedButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.ButtonStyleKey}}"/>
+      <Style x:Key="ThemedCheckBoxStyle" TargetType="CheckBox" BasedOn="{StaticResource {x:Static shell:VsResourceKeys.CheckBoxStyleKey}}"/>
+
+      <!-- Draw hint on top of external type textbox -->
       <VisualBrush x:Key="ExternalTypeHint" TileMode="None" Stretch="None" AlignmentX="Left">
         <VisualBrush.Transform>
           <TranslateTransform X="5" Y="0" />
@@ -76,25 +84,27 @@
 
       <Style x:Key="PopupBorderStyle" TargetType="{x:Type Border}">
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InfoTextBrushKey}}" />
+        <Setter Property="Background" Value="{DynamicResource VsBrush.ToolTipBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.ToolTipBorder}" />
       </Style>
 
       <Style x:Key="PopupTextBlockStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.InfoBrushKey}}" />
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.InfoTextBrushKey}}" />
+        <Setter Property="Background" Value="{DynamicResource VsBrush.ToolTipBackground}" />
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.ToolTipText}" />
         <Setter Property="Margin" Value="4,3,4,3" />
         <Setter Property="VerticalAlignment" Value="Center" />
       </Style>
 
       <Style TargetType="{x:Type DataGridRow}">
+        <Setter Property="Background" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
         <Setter Property="ValidationErrorTemplate">
           <Setter.Value>
             <ControlTemplate>
               <DockPanel LastChildFill="True">
                 <AdornedElementPlaceholder Name="customAdorner"/>
                 <Image Source="{StaticResource WarningPngIcon}" Margin="0,0,0,0" VerticalAlignment="Center"
-                       AutomationProperties.Name="WarningError" Stretch="None" ToolTip="{Binding ElementName=customAdorner, 
+                       AutomationProperties.Name="WarningError" Stretch="None" ToolTip="{Binding ElementName=customAdorner,
                                        Path=AdornedElement.(Validation.Errors)[0].ErrorContent}" />
               </DockPanel>
             </ControlTemplate>
@@ -107,6 +117,36 @@
                   <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
               </Trigger>
           </Style.Triggers>
+      </Style>
+
+      <Style TargetType="{x:Type DataGridCell}">
+          <Setter Property="Background" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
+          <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+          <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.ThreeDFace}"/>
+          <Setter Property="BorderThickness" Value="0"/>
+          <Setter Property="Padding" Value="2"/>
+          <Style.Triggers>
+              <Trigger Property="IsSelected" Value="True">
+                  <Setter Property="Background" Value="{DynamicResource VsBrush.Highlight}"/>
+                  <Setter Property="Foreground" Value="{DynamicResource VsBrush.HighlightText}"/>
+              </Trigger>
+          </Style.Triggers>
+      </Style>
+
+      <Style TargetType="{x:Type DataGridColumnHeader}">
+          <Setter Property="Background" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
+          <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+          <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.ActiveBorder}"/>
+          <Setter Property="BorderThickness" Value="0,0,1,1"/>
+          <Setter Property="Padding" Value="4,2"/>
+      </Style>
+
+      <Style TargetType="{x:Type DataGrid}">
+          <Setter Property="Background" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
+          <Setter Property="Foreground" Value="{DynamicResource VsBrush.WindowText}"/>
+          <Setter Property="BorderBrush" Value="{DynamicResource VsBrush.ActiveBorder}"/>
+          <Setter Property="RowBackground" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
+          <Setter Property="AlternatingRowBackground" Value="{DynamicResource VsBrush.ToolWindowBackground}"/>
       </Style>
 
       <core-controls:InverseBooleanConverter x:Key="InverseBooleanConverter" />
@@ -145,7 +185,7 @@
             </Binding>
           </TextBox.Text>
           <TextBox.Style>
-            <Style TargetType="{x:Type TextBox}">
+            <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ThemedTextBoxStyle}">
               <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="true">
                   <Setter Property="Background" Value="{DynamicResource VsBrush.ControlEditRequiredBackground}" />
@@ -184,9 +224,10 @@
 
       <ComboBox Grid.Column="0" Grid.Row="3"  HorizontalAlignment="Left" Name="cmbUnderlyingType"
                 Margin="5,0,5,5" Width="250px"
+                Style="{StaticResource ThemedComboBoxStyle}"
                 ItemsSource="{Binding Path=UnderlyingTypes}"
                 SelectedItem="{Binding Path=SelectedUnderlyingType,Mode=TwoWay}"
-                AutomationProperties.Name="{x:Static ded:Resources.EnumDialog_UnderlyingTypeLabel}" 
+                AutomationProperties.Name="{x:Static ded:Resources.EnumDialog_UnderlyingTypeLabel}"
                 ToolTip="{x:Static ded:Resources.PropertyWindow_Description_EnumUnderlyingType}"/>
 
       <DataGrid Grid.Column="0" Grid.Row="4" HorizontalAlignment="Stretch"
@@ -232,11 +273,13 @@
         </DataGrid.Columns>
       </DataGrid>
 
-      <CheckBox Content="{x:Static ded:Resources.EnumDialog_IsFlagLabel}" Grid.Column="0" Grid.Row="5"  
-                  Name="chkIsFlag" VerticalAlignment="Center" Margin="8,10,5,5" Padding="8,0,5,0" 
-                  IsChecked="{Binding Path=IsFlag}" ToolTip="{x:Static ded:Resources.EnumDialog_IsFlagLabelDescription}" />
+      <CheckBox Content="{x:Static ded:Resources.EnumDialog_IsFlagLabel}" Grid.Column="0" Grid.Row="5"
+                Style="{StaticResource ThemedCheckBoxStyle}"
+                Name="chkIsFlag" VerticalAlignment="Center" Margin="8,10,5,5" Padding="8,0,5,0"
+                IsChecked="{Binding Path=IsFlag}" ToolTip="{x:Static ded:Resources.EnumDialog_IsFlagLabelDescription}" />
 
       <CheckBox Content="{x:Static ded:Resources.EnumDialog_ExternalTypeLabel}" Grid.Column="0" Grid.Row="6"
+                Style="{StaticResource ThemedCheckBoxStyle}"
                 Name="chkReferenceExternalType" VerticalAlignment="Center" Margin="8,5,5,2" Padding="8,0,5,0" IsChecked="{Binding Path=IsReferenceExternalType}"
                 ToolTip="{x:Static ded:Resources.PropertyWindow_Description_EnumExternalTypeAttribute}" Click="OnRefrenceExternalTypeClick"/>
 
@@ -253,7 +296,7 @@
               </Binding>
             </TextBox.Text>
             <TextBox.Style>
-              <Style TargetType="{x:Type TextBox}">
+              <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource ThemedTextBoxStyle}">
                 <Style.Triggers>
                   <MultiTrigger>
                     <MultiTrigger.Conditions>
@@ -310,13 +353,15 @@
 
       <StackPanel Grid.Column="0" Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
          <Button Name="btnOk"
-                 Margin="5,15,5,5" MinWidth="70" IsDefault="True" 
+                 Style="{StaticResource ThemedButtonStyle}"
+                 Margin="5,15,5,5" MinWidth="70" IsDefault="True"
                  Click="btnOk_Click" Content="{x:Static ded:Resources.EnumDialog_OkButtonLabel}"
                  IsEnabled="{Binding Path=IsValid}"
                  AutomationProperties.Name="{x:Static ded:Resources.EnumDialog_OkButtonLabel}"/>
 
-        <Button Name="btnCancel" 
-                Margin="5,15,5,5" MinWidth="70" IsCancel="True" 
+        <Button Name="btnCancel"
+                Style="{StaticResource ThemedButtonStyle}"
+                Margin="5,15,5,5" MinWidth="70" IsCancel="True"
                 Click="btnCancel_Click" Content="{x:Static ded:Resources.EnumDialog_CancelButtonLabel}"
                 AutomationProperties.Name="{x:Static ded:Resources.EnumDialog_CancelButtonLabel}"/>
       </StackPanel>

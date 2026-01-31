@@ -23,12 +23,10 @@ namespace Microsoft.Data.Entity.Design.UI.ViewModels.PropertyWindow.Editors
                 return value;
             }
 
-            using (DebugViewerDialog dlg = new DebugViewerDialog(context.PropertyDescriptor.Name, value as string))
-            {
-                dlg.ShowDialog();
+            var dlg = new DebugViewerDialog(context.PropertyDescriptor.Name, value as string);
+            dlg.ShowModal();
 
-                return value;
-            }
+            return value;
         }
     }
 }

@@ -1,15 +1,15 @@
 // Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the MIT license.  See License.txt in the project root for license information.
 
 using System;
-using System.Windows.Forms;
-using Microsoft.Data.Entity.Design.VisualStudio;
+using System.Windows;
+using Microsoft.VisualStudio.PlatformUI;
 
 namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs
 {
-    // <summary>
-    //     Displays a dialog that allows us to display debug information in modal textbox in debug builds
-    // </summary>
-    internal partial class DebugViewerDialog : Form
+    /// <summary>
+    /// Displays a dialog that allows us to display debug information in modal textbox in debug builds
+    /// </summary>
+    internal partial class DebugViewerDialog : DialogWindow
     {
         internal enum ButtonMode
         {
@@ -19,32 +19,23 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs
 
         private readonly Action<DebugViewerDialog> _onOkClick;
 
-        internal string Message
-        {
-            get { return txtMessage.Text; }
-        }
+        internal string Message => MessageTextBox.Text;
 
         internal DebugViewerDialog(string formattedTitle, string formattedMessage, Action<DebugViewerDialog> onOkClick = null)
         {
             InitializeComponent();
+            this.HasHelpButton = false;
 
-            // Set the default font to VS shell font.
-            var vsFont = VSHelpers.GetVSFont(Services.ServiceProvider);
-            if (vsFont != null)
-            {
-                Font = vsFont;
-            }
-
-            Text = formattedTitle;
-            txtMessage.Text = formattedMessage;
+            Title = formattedTitle;
+            MessageTextBox.Text = formattedMessage;
             _onOkClick = onOkClick;
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             if (_onOkClick == null)
             {
-                Close();
+                DialogResult = true;
             }
             else
             {

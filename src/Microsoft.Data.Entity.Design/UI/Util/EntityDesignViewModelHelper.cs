@@ -409,31 +409,29 @@ namespace Microsoft.Data.Entity.Design.UI.Util
             string dialogTitle,
             Object selectedObject)
         {
-            using (NewFunctionImportDialog dialog = new NewFunctionImportDialog(
+            var dialog = new NewFunctionImportDialog(
                 selectedSproc,
                 selectedSprocName,
                 sModel.Functions(),
                 cModel.ComplexTypes(),
                 cModel.EntityTypes(),
                 cContainer,
-                selectedObject))
-            {
-                dialog.Text = dialogTitle;
+                selectedObject);
+            dialog.Title = dialogTitle;
 
-                var dialogResult = dialog.ShowDialog();
+            var dialogResult = dialog.ShowModal();
 
-                EntityDesignNewFunctionImportResult result = new EntityDesignNewFunctionImportResult
-                    {
-                        DialogResult = dialogResult,
-                        Function = dialog.Function,
-                        FunctionName = dialog.FunctionImportName,
-                        IsComposable = dialog.IsComposable,
-                        ReturnType = dialog.ReturnType,
-                        Schema = dialog.Schema
-                    };
+            EntityDesignNewFunctionImportResult result = new EntityDesignNewFunctionImportResult
+                {
+                    DialogResult = dialogResult == true ? System.Windows.Forms.DialogResult.OK : System.Windows.Forms.DialogResult.Cancel,
+                    Function = dialog.Function,
+                    FunctionName = dialog.FunctionImportName,
+                    IsComposable = dialog.IsComposable,
+                    ReturnType = dialog.ReturnType,
+                    Schema = dialog.Schema
+                };
 
-                return result;
-            }
+            return result;
         }
 
         private static void NavigateToFunction(FunctionImport fi)

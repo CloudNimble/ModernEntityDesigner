@@ -19,10 +19,10 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DialogsResource {
+    public class DialogsResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Microsoft.Data.Entity.Design.UI.Views.Dialogs.DialogsResource", typeof(DialogsResource).Assembly);
@@ -51,7 +51,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Cancel Button.
         /// </summary>
-        internal static string CancelButton_AccessibleName {
+        public static string CancelButton_AccessibleName {
             get {
                 return ResourceManager.GetString("CancelButton_AccessibleName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string CancelButton_Text {
+        public static string CancelButton_Text {
             get {
                 return ResourceManager.GetString("CancelButton_Text", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Cancelling....
         /// </summary>
-        internal static string CancellingButton_Text {
+        public static string CancellingButton_Text {
             get {
                 return ResourceManager.GetString("CancellingButton_Text", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Select a complex type:.
         /// </summary>
-        internal static string ComplexTypePickerDialog_Prompt {
+        public static string ComplexTypePickerDialog_Prompt {
             get {
                 return ResourceManager.GetString("ComplexTypePickerDialog_Prompt", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Complex Property.
         /// </summary>
-        internal static string ComplexTypePickerDialog_Title {
+        public static string ComplexTypePickerDialog_Title {
             get {
                 return ResourceManager.GetString("ComplexTypePickerDialog_Title", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete these items?.
         /// </summary>
-        internal static string ConfirmDeleteDialog_DescriptionLabel_Text {
+        public static string ConfirmDeleteDialog_DescriptionLabel_Text {
             get {
                 return ResourceManager.GetString("ConfirmDeleteDialog_DescriptionLabel_Text", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Confirm Delete.
         /// </summary>
-        internal static string ConfirmDeleteDialog_Title {
+        public static string ConfirmDeleteDialog_Title {
             get {
                 return ResourceManager.GetString("ConfirmDeleteDialog_Title", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Delete.
         /// </summary>
-        internal static string DeleteButton_Text {
+        public static string DeleteButton_Text {
             get {
                 return ResourceManager.GetString("DeleteButton_Text", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The following tables and views in the store model will no longer be mapped.  Do you want them deleted?.
         /// </summary>
-        internal static string DeleteStorageEntitySetsDescription {
+        public static string DeleteStorageEntitySetsDescription {
             get {
                 return ResourceManager.GetString("DeleteStorageEntitySetsDescription", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Delete Unmapped Tables and Views.
         /// </summary>
-        internal static string DeleteStorageEntitySetsDialogTitle {
+        public static string DeleteStorageEntitySetsDialogTitle {
             get {
                 return ResourceManager.GetString("DeleteStorageEntitySetsDialogTitle", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to List of Storage Entity Sets.
         /// </summary>
-        internal static string DeleteStorageEntitySetsListBox_AccessibleName {
+        public static string DeleteStorageEntitySetsListBox_AccessibleName {
             get {
                 return ResourceManager.GetString("DeleteStorageEntitySetsListBox_AccessibleName", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Finish.
         /// </summary>
-        internal static string FinishButton_Text {
+        public static string FinishButton_Text {
             get {
                 return ResourceManager.GetString("FinishButton_Text", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Association Name:.
         /// </summary>
-        internal static string NewAssociationDialog_AssociationNameLabel {
+        public static string NewAssociationDialog_AssociationNameLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_AssociationNameLabel", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add &amp;foreign key properties to the &apos;{0}&apos; Entity.
         /// </summary>
-        internal static string NewAssociationDialog_CreateForeignKeysLabel {
+        public static string NewAssociationDialog_CreateForeignKeysLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_CreateForeignKeysLabel", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add foreign key properties.
         /// </summary>
-        internal static string NewAssociationDialog_CreateForeignKeysLabel_Default {
+        public static string NewAssociationDialog_CreateForeignKeysLabel_Default {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_CreateForeignKeysLabel_Default", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to End.
         /// </summary>
-        internal static string NewAssociationDialog_EndLabel {
+        public static string NewAssociationDialog_EndLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_EndLabel", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Verify that the Association name is unique..
         /// </summary>
-        internal static string NewAssociationDialog_EnsureUniqueNameMsg {
+        public static string NewAssociationDialog_EnsureUniqueNameMsg {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_EnsureUniqueNameMsg", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Verify that the NavigationProperty name is unique..
         /// </summary>
-        internal static string NewAssociationDialog_EnsureUniquePropertyNameMsg {
+        public static string NewAssociationDialog_EnsureUniquePropertyNameMsg {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_EnsureUniquePropertyNameMsg", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Entity 1.
         /// </summary>
-        internal static string NewAssociationDialog_Entity1AccessibleName {
+        public static string NewAssociationDialog_Entity1AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_Entity1AccessibleName", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Entity 2.
         /// </summary>
-        internal static string NewAssociationDialog_Entity2AccessibleName {
+        public static string NewAssociationDialog_Entity2AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_Entity2AccessibleName", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Entity:.
         /// </summary>
-        internal static string NewAssociationDialog_EntityLabel {
+        public static string NewAssociationDialog_EntityLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_EntityLabel", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Explanation box.
         /// </summary>
-        internal static string NewAssociationDialog_ExplanationBoxAccessibleName {
+        public static string NewAssociationDialog_ExplanationBoxAccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_ExplanationBoxAccessibleName", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to {0} can have {1} instance of {2}. Use {0}.{3} to access the {2} instance..
         /// </summary>
-        internal static string NewAssociationDialog_ExplanationText1 {
+        public static string NewAssociationDialog_ExplanationText1 {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_ExplanationText1", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to {0} can have {1} instance of {2}..
         /// </summary>
-        internal static string NewAssociationDialog_ExplanationText1EmptyNavProp {
+        public static string NewAssociationDialog_ExplanationText1EmptyNavProp {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_ExplanationText1EmptyNavProp", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to {0} can have {1} instances of {2}. Use {0}.{3} to access the {2} instances..
         /// </summary>
-        internal static string NewAssociationDialog_ExplanationText2 {
+        public static string NewAssociationDialog_ExplanationText2 {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_ExplanationText2", resourceCulture);
             }
@@ -288,7 +288,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to {0} can have {1} instances of {2}..
         /// </summary>
-        internal static string NewAssociationDialog_ExplanationText2EmptyNavProp {
+        public static string NewAssociationDialog_ExplanationText2EmptyNavProp {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_ExplanationText2EmptyNavProp", resourceCulture);
             }
@@ -297,7 +297,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The Association name is not valid..
         /// </summary>
-        internal static string NewAssociationDialog_InvalidAssociationNameMsg {
+        public static string NewAssociationDialog_InvalidAssociationNameMsg {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_InvalidAssociationNameMsg", resourceCulture);
             }
@@ -306,7 +306,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The NavigationProperty name is not valid..
         /// </summary>
-        internal static string NewAssociationDialog_InvalidNavigationPropertyNameMsg {
+        public static string NewAssociationDialog_InvalidNavigationPropertyNameMsg {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_InvalidNavigationPropertyNameMsg", resourceCulture);
             }
@@ -315,7 +315,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Multiplicity 1.
         /// </summary>
-        internal static string NewAssociationDialog_Multiplicity1AccessibleName {
+        public static string NewAssociationDialog_Multiplicity1AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_Multiplicity1AccessibleName", resourceCulture);
             }
@@ -324,7 +324,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Multiplicity 2.
         /// </summary>
-        internal static string NewAssociationDialog_Multiplicity2AccessibleName {
+        public static string NewAssociationDialog_Multiplicity2AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_Multiplicity2AccessibleName", resourceCulture);
             }
@@ -333,7 +333,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Multiplicity:.
         /// </summary>
-        internal static string NewAssociationDialog_MultiplicityLabel {
+        public static string NewAssociationDialog_MultiplicityLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_MultiplicityLabel", resourceCulture);
             }
@@ -342,7 +342,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Navigation Property 1.
         /// </summary>
-        internal static string NewAssociationDialog_NavigationProperty1AccessibleName {
+        public static string NewAssociationDialog_NavigationProperty1AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_NavigationProperty1AccessibleName", resourceCulture);
             }
@@ -351,7 +351,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Navigation Property 2.
         /// </summary>
-        internal static string NewAssociationDialog_NavigationProperty2AccessibleName {
+        public static string NewAssociationDialog_NavigationProperty2AccessibleName {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_NavigationProperty2AccessibleName", resourceCulture);
             }
@@ -360,7 +360,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Navigation Property:.
         /// </summary>
-        internal static string NewAssociationDialog_NavigationPropertyLabel {
+        public static string NewAssociationDialog_NavigationPropertyLabel {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_NavigationPropertyLabel", resourceCulture);
             }
@@ -369,7 +369,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Association.
         /// </summary>
-        internal static string NewAssociationDialog_Title {
+        public static string NewAssociationDialog_Title {
             get {
                 return ResourceManager.GetString("NewAssociationDialog_Title", resourceCulture);
             }
@@ -378,7 +378,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Base type:.
         /// </summary>
-        internal static string NewEntityDialog_BaseTypeLabel {
+        public static string NewEntityDialog_BaseTypeLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_BaseTypeLabel", resourceCulture);
             }
@@ -387,7 +387,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Create key property.
         /// </summary>
-        internal static string NewEntityDialog_CreateKeyLabel {
+        public static string NewEntityDialog_CreateKeyLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_CreateKeyLabel", resourceCulture);
             }
@@ -396,7 +396,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Verify that the EntityType name is unique..
         /// </summary>
-        internal static string NewEntityDialog_EnsureUniqueNameMsg {
+        public static string NewEntityDialog_EnsureUniqueNameMsg {
             get {
                 return ResourceManager.GetString("NewEntityDialog_EnsureUniqueNameMsg", resourceCulture);
             }
@@ -405,7 +405,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Verify that the EntitySet name is unique..
         /// </summary>
-        internal static string NewEntityDialog_EnsureUniqueSetNameMsg {
+        public static string NewEntityDialog_EnsureUniqueSetNameMsg {
             get {
                 return ResourceManager.GetString("NewEntityDialog_EnsureUniqueSetNameMsg", resourceCulture);
             }
@@ -414,7 +414,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Entity name:.
         /// </summary>
-        internal static string NewEntityDialog_EntityNameLabel {
+        public static string NewEntityDialog_EntityNameLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_EntityNameLabel", resourceCulture);
             }
@@ -423,7 +423,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Entity &amp;Set:.
         /// </summary>
-        internal static string NewEntityDialog_EntitySetLabel {
+        public static string NewEntityDialog_EntitySetLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_EntitySetLabel", resourceCulture);
             }
@@ -432,7 +432,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The EntityType name is not valid..
         /// </summary>
-        internal static string NewEntityDialog_InvalidEntityNameMsg {
+        public static string NewEntityDialog_InvalidEntityNameMsg {
             get {
                 return ResourceManager.GetString("NewEntityDialog_InvalidEntityNameMsg", resourceCulture);
             }
@@ -441,7 +441,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The EntitySet name is not valid..
         /// </summary>
-        internal static string NewEntityDialog_InvalidEntitySetMsg {
+        public static string NewEntityDialog_InvalidEntitySetMsg {
             get {
                 return ResourceManager.GetString("NewEntityDialog_InvalidEntitySetMsg", resourceCulture);
             }
@@ -450,7 +450,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The Key Property name is not valid..
         /// </summary>
-        internal static string NewEntityDialog_InvalidKeyPropertyNameMsg {
+        public static string NewEntityDialog_InvalidKeyPropertyNameMsg {
             get {
                 return ResourceManager.GetString("NewEntityDialog_InvalidKeyPropertyNameMsg", resourceCulture);
             }
@@ -459,7 +459,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Key Property.
         /// </summary>
-        internal static string NewEntityDialog_KeyPropertyLabel {
+        public static string NewEntityDialog_KeyPropertyLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_KeyPropertyLabel", resourceCulture);
             }
@@ -468,7 +468,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Properties.
         /// </summary>
-        internal static string NewEntityDialog_PropertiesLabel {
+        public static string NewEntityDialog_PropertiesLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_PropertiesLabel", resourceCulture);
             }
@@ -477,7 +477,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Property &amp;name:.
         /// </summary>
-        internal static string NewEntityDialog_PropertyNameLabel {
+        public static string NewEntityDialog_PropertyNameLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_PropertyNameLabel", resourceCulture);
             }
@@ -486,7 +486,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Property &amp;type:.
         /// </summary>
-        internal static string NewEntityDialog_PropertyTypeLabel {
+        public static string NewEntityDialog_PropertyTypeLabel {
             get {
                 return ResourceManager.GetString("NewEntityDialog_PropertyTypeLabel", resourceCulture);
             }
@@ -495,7 +495,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Entity.
         /// </summary>
-        internal static string NewEntityDialog_Title {
+        public static string NewEntityDialog_Title {
             get {
                 return ResourceManager.GetString("NewEntityDialog_Title", resourceCulture);
             }
@@ -504,7 +504,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Function Import.
         /// </summary>
-        internal static string NewFunctionImportDialog_AddFunctionImportTitle {
+        public static string NewFunctionImportDialog_AddFunctionImportTitle {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_AddFunctionImportTitle", resourceCulture);
             }
@@ -513,7 +513,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The Return Type shape cannot be inferred..
         /// </summary>
-        internal static string NewFunctionImportDialog_CannotInferReturnTypeShapeMsg {
+        public static string NewFunctionImportDialog_CannotInferReturnTypeShapeMsg {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_CannotInferReturnTypeShapeMsg", resourceCulture);
             }
@@ -522,7 +522,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Detect Return Type Shape.
         /// </summary>
-        internal static string NewFunctionImportDialog_ClickToExecute {
+        public static string NewFunctionImportDialog_ClickToExecute {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ClickToExecute", resourceCulture);
             }
@@ -531,7 +531,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Complex Types.
         /// </summary>
-        internal static string NewFunctionImportDialog_ComplexTypeReturnAccessibleName {
+        public static string NewFunctionImportDialog_ComplexTypeReturnAccessibleName {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ComplexTypeReturnAccessibleName", resourceCulture);
             }
@@ -540,7 +540,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Complex:.
         /// </summary>
-        internal static string NewFunctionImportDialog_ComplexTypeReturnLabel {
+        public static string NewFunctionImportDialog_ComplexTypeReturnLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ComplexTypeReturnLabel", resourceCulture);
             }
@@ -549,7 +549,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Could not find the stored procedure or function {0}. This may be a temporary inability to read from the database or the stored procedure or function may have been deleted from the database..
         /// </summary>
-        internal static string NewFunctionImportDialog_CouldNotFindStoredProcedure {
+        public static string NewFunctionImportDialog_CouldNotFindStoredProcedure {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_CouldNotFindStoredProcedure", resourceCulture);
             }
@@ -558,7 +558,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Edit Function Import.
         /// </summary>
-        internal static string NewFunctionImportDialog_EditFunctionImportTitle {
+        public static string NewFunctionImportDialog_EditFunctionImportTitle {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_EditFunctionImportTitle", resourceCulture);
             }
@@ -567,7 +567,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;None.
         /// </summary>
-        internal static string NewFunctionImportDialog_EmptyReturnTypeLabel {
+        public static string NewFunctionImportDialog_EmptyReturnTypeLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_EmptyReturnTypeLabel", resourceCulture);
             }
@@ -576,7 +576,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Verify that the FunctionImport name is unique..
         /// </summary>
-        internal static string NewFunctionImportDialog_EnsureUniqueNameMsg {
+        public static string NewFunctionImportDialog_EnsureUniqueNameMsg {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_EnsureUniqueNameMsg", resourceCulture);
             }
@@ -585,7 +585,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Entities Type.
         /// </summary>
-        internal static string NewFunctionImportDialog_EntityTypeReturnAccessibleName {
+        public static string NewFunctionImportDialog_EntityTypeReturnAccessibleName {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_EntityTypeReturnAccessibleName", resourceCulture);
             }
@@ -594,7 +594,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Entities:.
         /// </summary>
-        internal static string NewFunctionImportDialog_EntityTypeReturnLabel {
+        public static string NewFunctionImportDialog_EntityTypeReturnLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_EntityTypeReturnLabel", resourceCulture);
             }
@@ -603,7 +603,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Detecting Return Type....
         /// </summary>
-        internal static string NewFunctionImportDialog_Executing {
+        public static string NewFunctionImportDialog_Executing {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_Executing", resourceCulture);
             }
@@ -612,7 +612,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Function Import Name:.
         /// </summary>
-        internal static string NewFunctionImportDialog_FunctionImportLabel {
+        public static string NewFunctionImportDialog_FunctionImportLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_FunctionImportLabel", resourceCulture);
             }
@@ -623,7 +623,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         ///The exception message is:
         ///{1}.
         /// </summary>
-        internal static string NewFunctionImportDialog_GetColumnInfoException {
+        public static string NewFunctionImportDialog_GetColumnInfoException {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_GetColumnInfoException", resourceCulture);
             }
@@ -632,7 +632,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The Function Import name is not valid..
         /// </summary>
-        internal static string NewFunctionImportDialog_InvalidFunctionImportNameMsg {
+        public static string NewFunctionImportDialog_InvalidFunctionImportNameMsg {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_InvalidFunctionImportNameMsg", resourceCulture);
             }
@@ -641,7 +641,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Editing composable Function Imports is not supported for EDMX files with version less than or equal to {0}.
         /// </summary>
-        internal static string NewFunctionImportDialog_IsComposableTooltipText {
+        public static string NewFunctionImportDialog_IsComposableTooltipText {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_IsComposableTooltipText", resourceCulture);
             }
@@ -650,7 +650,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The selected stored procedure or function returns no columns..
         /// </summary>
-        internal static string NewFunctionImportDialog_NoColumnsReturned {
+        public static string NewFunctionImportDialog_NoColumnsReturned {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_NoColumnsReturned", resourceCulture);
             }
@@ -659,7 +659,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to A database connection could not be found for this model..
         /// </summary>
-        internal static string NewFunctionImportDialog_NoConnectionMsg {
+        public static string NewFunctionImportDialog_NoConnectionMsg {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_NoConnectionMsg", resourceCulture);
             }
@@ -668,7 +668,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Not Supported.
         /// </summary>
-        internal static string NewFunctionImportDialog_NotSupportedColumnType {
+        public static string NewFunctionImportDialog_NotSupportedColumnType {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_NotSupportedColumnType", resourceCulture);
             }
@@ -677,7 +677,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The value &apos;{0}&apos; is not a valid name for a complex type..
         /// </summary>
-        internal static string NewFunctionImportDialog_NotValidComplexTypeName {
+        public static string NewFunctionImportDialog_NotValidComplexTypeName {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_NotValidComplexTypeName", resourceCulture);
             }
@@ -686,7 +686,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Return Type:.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeLabel {
+        public static string NewFunctionImportDialog_ReturnTypeLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeLabel", resourceCulture);
             }
@@ -695,7 +695,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeListAddAction {
+        public static string NewFunctionImportDialog_ReturnTypeListAddAction {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeListAddAction", resourceCulture);
             }
@@ -704,7 +704,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeListDeleteAction {
+        public static string NewFunctionImportDialog_ReturnTypeListDeleteAction {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeListDeleteAction", resourceCulture);
             }
@@ -713,7 +713,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeListNoAction {
+        public static string NewFunctionImportDialog_ReturnTypeListNoAction {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeListNoAction", resourceCulture);
             }
@@ -722,7 +722,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeListUpdateAction {
+        public static string NewFunctionImportDialog_ReturnTypeListUpdateAction {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeListUpdateAction", resourceCulture);
             }
@@ -731,7 +731,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to {0}-&gt;{1}.
         /// </summary>
-        internal static string NewFunctionImportDialog_ReturnTypeListViewItemChange {
+        public static string NewFunctionImportDialog_ReturnTypeListViewItemChange {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ReturnTypeListViewItemChange", resourceCulture);
             }
@@ -740,7 +740,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Scalars.
         /// </summary>
-        internal static string NewFunctionImportDialog_ScalarsTypeReturnAccessibleName {
+        public static string NewFunctionImportDialog_ScalarsTypeReturnAccessibleName {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ScalarsTypeReturnAccessibleName", resourceCulture);
             }
@@ -749,7 +749,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Scalars:.
         /// </summary>
-        internal static string NewFunctionImportDialog_ScalarsTypeReturnLabel {
+        public static string NewFunctionImportDialog_ScalarsTypeReturnLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_ScalarsTypeReturnLabel", resourceCulture);
             }
@@ -758,7 +758,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Select a Stored Procedure to enable return type shape detection..
         /// </summary>
-        internal static string NewFunctionImportDialog_SelectStoredProcedure {
+        public static string NewFunctionImportDialog_SelectStoredProcedure {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_SelectStoredProcedure", resourceCulture);
             }
@@ -767,7 +767,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Stored &amp;Procedure Name:.
         /// </summary>
-        internal static string NewFunctionImportDialog_StoredProcNameLabel {
+        public static string NewFunctionImportDialog_StoredProcNameLabel {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_StoredProcNameLabel", resourceCulture);
             }
@@ -776,7 +776,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Function Import.
         /// </summary>
-        internal static string NewFunctionImportDialog_Title {
+        public static string NewFunctionImportDialog_Title {
             get {
                 return ResourceManager.GetString("NewFunctionImportDialog_Title", resourceCulture);
             }
@@ -785,7 +785,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Select the base and derived entities to create a new inheritance relationship..
         /// </summary>
-        internal static string NewInheritanceDialog_InfoText {
+        public static string NewInheritanceDialog_InfoText {
             get {
                 return ResourceManager.GetString("NewInheritanceDialog_InfoText", resourceCulture);
             }
@@ -794,7 +794,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Select a &amp;base entity:.
         /// </summary>
-        internal static string NewInheritanceDialog_SelectBaseEntity {
+        public static string NewInheritanceDialog_SelectBaseEntity {
             get {
                 return ResourceManager.GetString("NewInheritanceDialog_SelectBaseEntity", resourceCulture);
             }
@@ -803,7 +803,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Select a &amp;derived entity:.
         /// </summary>
-        internal static string NewInheritanceDialog_SelectDerivedEntity {
+        public static string NewInheritanceDialog_SelectDerivedEntity {
             get {
                 return ResourceManager.GetString("NewInheritanceDialog_SelectDerivedEntity", resourceCulture);
             }
@@ -812,7 +812,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Add Inheritance.
         /// </summary>
-        internal static string NewInheritanceDialog_Title {
+        public static string NewInheritanceDialog_Title {
             get {
                 return ResourceManager.GetString("NewInheritanceDialog_Title", resourceCulture);
             }
@@ -821,7 +821,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to No Button.
         /// </summary>
-        internal static string NoButton_AccessibleName {
+        public static string NoButton_AccessibleName {
             get {
                 return ResourceManager.GetString("NoButton_AccessibleName", resourceCulture);
             }
@@ -830,7 +830,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;No.
         /// </summary>
-        internal static string NoButton_Text {
+        public static string NoButton_Text {
             get {
                 return ResourceManager.GetString("NoButton_Text", resourceCulture);
             }
@@ -839,7 +839,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to OK Button.
         /// </summary>
-        internal static string OKButton_AccessibleName {
+        public static string OKButton_AccessibleName {
             get {
                 return ResourceManager.GetString("OKButton_AccessibleName", resourceCulture);
             }
@@ -848,7 +848,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
-        internal static string OKButton_Text {
+        public static string OKButton_Text {
             get {
                 return ResourceManager.GetString("OKButton_Text", resourceCulture);
             }
@@ -857,7 +857,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Dependent Key.
         /// </summary>
-        internal static string RefConstraintDialog_DependentKeyHeader {
+        public static string RefConstraintDialog_DependentKeyHeader {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_DependentKeyHeader", resourceCulture);
             }
@@ -866,7 +866,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Dependent Property.
         /// </summary>
-        internal static string RefConstraintDialog_DependentKeyHeader_SupportFKs {
+        public static string RefConstraintDialog_DependentKeyHeader_SupportFKs {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_DependentKeyHeader_SupportFKs", resourceCulture);
             }
@@ -875,7 +875,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Dependent:.
         /// </summary>
-        internal static string RefConstraintDialog_DependentLabel {
+        public static string RefConstraintDialog_DependentLabel {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_DependentLabel", resourceCulture);
             }
@@ -884,7 +884,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The following list of dependent key properties ({0}) are each mapped to more than one principal key property. Please ensure there is a maximum of one mapping for each dependent key property..
         /// </summary>
-        internal static string RefConstraintDialog_DependentPropMappedMultipleTimes {
+        public static string RefConstraintDialog_DependentPropMappedMultipleTimes {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_DependentPropMappedMultipleTimes", resourceCulture);
             }
@@ -893,7 +893,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Principal Key.
         /// </summary>
-        internal static string RefConstraintDialog_PrincipalKeyHeader {
+        public static string RefConstraintDialog_PrincipalKeyHeader {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_PrincipalKeyHeader", resourceCulture);
             }
@@ -902,7 +902,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Principal:.
         /// </summary>
-        internal static string RefConstraintDialog_PrincipalLabel {
+        public static string RefConstraintDialog_PrincipalLabel {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_PrincipalLabel", resourceCulture);
             }
@@ -911,7 +911,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Referential Constraint.
         /// </summary>
-        internal static string RefConstraintDialog_Title {
+        public static string RefConstraintDialog_Title {
             get {
                 return ResourceManager.GetString("RefConstraintDialog_Title", resourceCulture);
             }
@@ -920,7 +920,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Build and deploy database project &apos;{0}&apos; to Debug database.
         /// </summary>
-        internal static string RefreshFunctionImportsDialog_chkBuildAndDeploy_Text {
+        public static string RefreshFunctionImportsDialog_chkBuildAndDeploy_Text {
             get {
                 return ResourceManager.GetString("RefreshFunctionImportsDialog_chkBuildAndDeploy_Text", resourceCulture);
             }
@@ -929,7 +929,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Could not find the database project &apos;{0}&apos;.
         /// </summary>
-        internal static string RefreshFunctionImportsDialog_Error_NoProject {
+        public static string RefreshFunctionImportsDialog_Error_NoProject {
             get {
                 return ResourceManager.GetString("RefreshFunctionImportsDialog_Error_NoProject", resourceCulture);
             }
@@ -938,7 +938,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to A database project reference must be specified for this model.
         /// </summary>
-        internal static string RefreshFunctionImportsDialog_Error_NoReference {
+        public static string RefreshFunctionImportsDialog_Error_NoReference {
             get {
                 return ResourceManager.GetString("RefreshFunctionImportsDialog_Error_NoReference", resourceCulture);
             }
@@ -947,7 +947,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Only references of type &apos;{0}&apos; are supported for this operation.
         /// </summary>
-        internal static string RefreshFunctionImportsDialog_Error_OnlyDbProject {
+        public static string RefreshFunctionImportsDialog_Error_OnlyDbProject {
             get {
                 return ResourceManager.GetString("RefreshFunctionImportsDialog_Error_OnlyDbProject", resourceCulture);
             }
@@ -956,7 +956,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Refresh Views, Functions, and Function Imports for &apos;{0}&apos;.
         /// </summary>
-        internal static string RefreshFunctionImportsDialog_Title {
+        public static string RefreshFunctionImportsDialog_Title {
             get {
                 return ResourceManager.GetString("RefreshFunctionImportsDialog_Title", resourceCulture);
             }
@@ -965,7 +965,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to The property name cannot be the same as the entity name..
         /// </summary>
-        internal static string SameEntityAndPropertyNameMsg {
+        public static string SameEntityAndPropertyNameMsg {
             get {
                 return ResourceManager.GetString("SameEntityAndPropertyNameMsg", resourceCulture);
             }
@@ -974,7 +974,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to Yes Button.
         /// </summary>
-        internal static string YesButton_AccessibleName {
+        public static string YesButton_AccessibleName {
             get {
                 return ResourceManager.GetString("YesButton_AccessibleName", resourceCulture);
             }
@@ -983,7 +983,7 @@ namespace Microsoft.Data.Entity.Design.UI.Views.Dialogs {
         /// <summary>
         ///   Looks up a localized string similar to &amp;Yes.
         /// </summary>
-        internal static string YesButton_Text {
+        public static string YesButton_Text {
             get {
                 return ResourceManager.GetString("YesButton_Text", resourceCulture);
             }
