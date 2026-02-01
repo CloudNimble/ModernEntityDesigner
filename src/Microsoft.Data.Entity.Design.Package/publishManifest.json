@@ -8,7 +8,7 @@
   "identity": {
     "internalName": "EasyAF-EntityDesigner"
   },
-  "overview": "README.md",
+  "overview": "../../README.md",
   "priceCategory": "free",
   "publisher": "CloudNimble",
   "private": false,
